@@ -82,6 +82,7 @@ field2scene/
 - **3DGS 학습·렌더**: [INRIA gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting) (연구·비상업 라이선스) + COLMAP. RTX 4060 Laptop 8GB에서 검증.
 - **검출**: [Ultralytics](https://github.com/ultralytics/ultralytics) YOLO-World (오픈보캡, `"tomato"` 프롬프트).
 - 단계별 정확한 명령·파라미터는 `references/p{1,2,3}_result.md` 참조.
+- 막혔던 지점과 원인·해결(COLMAP 등록 붕괴, 8GB 학습 속도, 렌더 CUDA 오류 등)은 [references/lessons.md](references/lessons.md) — 엔지니어링 로그.
 
 ## 로드맵
 
