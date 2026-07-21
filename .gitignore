@@ -1,0 +1,43 @@
+# 대용량 데이터·학습 산출물 — 커밋 금지
+data/
+datasets/
+renders/
+output/
+outputs/
+exports/
+*.mp4
+*.mov
+*.ply
+*.splat
+*.ckpt
+*.pth
+
+# COLMAP / Nerfstudo 작업 산출물
+colmap/
+processed/
+nerfstudio_models/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# 개인 작업 메모 (공개 금지)
+references/guide.txt
+
+# 로그 · 리포트 원본 viz (축소본은 assets에)
+*.log
+report/**/viz/
+
+# 모델 가중치 (다운로드물)
+*.pt
+weights/
+
+# 로컬 전용 작업 문서
+CLAUDE.md
+references/p0_company_research.md

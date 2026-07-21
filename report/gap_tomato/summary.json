@@ -1,0 +1,22 @@
+{
+ "n_pairs": 24,
+ "conf_thr": 0.1,
+ "iou_thr": 0.5,
+ "model": "yolov8s-world.pt",
+ "classes": [
+  "tomato"
+ ],
+ "real_dets_total": 187,
+ "render_dets_total": 175,
+ "real_dets_per_frame": 7.79,
+ "render_dets_per_frame": 7.29,
+ "detection_count_ratio": 0.936,
+ "real_conf_mean": 0.196,
+ "render_conf_mean": 0.195,
+ "conf_delta": -0.001,
+ "matched_total": 170,
+ "recall_render_vs_real": 0.909,
+ "precision_render_vs_real": 0.971,
+ "synth_frames": 150,
+ "synth_dets_per_frame": 6.77
+}
