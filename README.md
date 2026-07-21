@@ -7,7 +7,9 @@
 → YOLO 렌더 vs 실촬영 갭 리포트 → ROS2 sensor_msgs 퍼블리시 → (선택) 메시 추출·Gazebo
 ```
 
-> 진행 중 — 단계별 현황은 커밋 히스토리 참조.
+**현황:** ✅ P1 씬 재구성 · ✅ P2 합성 데이터 생성 · ✅ P3 Sim-to-Real 갭 리포트 · ⬜ P4 ROS2 브리지(로드맵) · ⬜ P5 에셋 최적화(선택)
+
+세 단계 모두 이 저장소의 스크립트·리포트·에셋으로 재현 가능하다(대용량 학습 산출물은 제외 — 아래 재현 참고).
 
 ## P1 — 씬 재구성 (완료)
 
@@ -24,7 +26,7 @@
 ![근경 비교](assets/p1_compare_00005.jpg)
 ![통로 비교](assets/p1_compare_00020.jpg)
 
-정직 노트: 근·중경은 원본과 거의 구별되지 않으나, 관측이 적은 **통로 안쪽 원거리는 흐릿하게** 재현된다(P3 갭 분석에서 정량화 예정). 재현 절차·파라미터는 [references/p1_result.md](references/p1_result.md) 참조.
+정직 노트: 근·중경은 원본과 거의 구별되지 않으나, 관측이 적은 **통로 안쪽 원거리는 흐릿하게** 재현된다(아래 P3에서 검출 손실로 정량화). 재현 절차·파라미터는 [references/p1_result.md](references/p1_result.md) 참조.
 
 ## P2 — 합성 데이터 생성 (완료)
 
@@ -61,12 +63,27 @@
 
 ![검출 비교](assets/p3_detection_pair.jpg)
 
-## 구조 (예정)
+## 저장소 구조
 
 ```
 field2scene/
-├── scripts/          # 프레임 추출 · 주행 경로 렌더 · 갭 리포트
-├── ros2_ws/          # 3DGS 심 카메라 ROS2 패키지
-├── report/           # Sim-to-Real 갭 분석
-└── assets/           # 데모 GIF · 결과 그래프
+├── scripts/
+│   ├── render_driving_path.py   # P2 주행 경로 novel-view 렌더 + 도메인 랜덤화
+│   └── gap_report.py            # P3 실촬 vs 렌더 YOLO 검출 갭 분석
+├── references/                  # 단계별 방법·결과·재현 절차 (p1~p3)
+├── report/gap_tomato/           # P3 갭 수치 (summary.json · per_frame.csv)
+└── assets/                      # 비교 이미지 · 데모 GIF · 갭 차트
 ```
+
+대용량 산출물(원본 영상, COLMAP·3DGS 학습물, 렌더 데이터셋 350장)은 저장소에 포함하지 않는다(`.gitignore`) — 각 단계 문서의 절차로 재현한다.
+
+## 재현 / 의존성
+
+- **3DGS 학습·렌더**: [INRIA gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting) (연구·비상업 라이선스) + COLMAP. RTX 4060 Laptop 8GB에서 검증.
+- **검출**: [Ultralytics](https://github.com/ultralytics/ultralytics) YOLO-World (오픈보캡, `"tomato"` 프롬프트).
+- 단계별 정확한 명령·파라미터는 `references/p{1,2,3}_result.md` 참조.
+
+## 로드맵
+
+- **P4 ROS2 브리지** — 렌더 프레임을 `sensor_msgs/Image` + `CameraInfo`로 퍼블리시하는 심 카메라 노드.
+- **P5 에셋 최적화 (선택)** — 스플랫 경량화(현재 1.33M splat) 또는 메시 추출 → Gazebo 로드.
