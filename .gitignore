@@ -17,6 +17,11 @@ colmap/
 processed/
 nerfstudio_models/
 
+# ROS2 colcon 빌드 산출물
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
 # Python
 __pycache__/
 *.pyc
@@ -41,3 +46,6 @@ weights/
 # 로컬 전용 작업 문서
 CLAUDE.md
 references/p0_company_research.md
+
+# 지원서 첨부용 1페이지(비공개)
+onepager/
