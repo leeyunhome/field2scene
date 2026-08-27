@@ -42,7 +42,7 @@ GS_REPO=<INRIA repo> python scripts/render_driving_path.py \
 - 도메인 랜덤화 다양성: `assets/p2_domain_random.jpg` (시점·조도·위치 변형 6종).
 - 품질: 경로가 학습 궤적 근처에 머물러(P1 한계 반영) 근·중경 선명 유지. 통로 원거리·좌측 벽 밖은 여전히 흐릿 → P3 갭 소재.
 
-## 교훈 / 정직 노트
+## 교훈
 
 1. 이 rasterizer 빌드(newer, dc/shs 분리)는 `render(separate_sh=True)`만 정상 — `False`는 CUDA illegal access. 학습에 쓴 호출과 일치시켜야 함.
 2. 도메인 랜덤화 이동량은 **씬 extent 비율**로 정의해 프레임 수·씬 스케일과 무관하게 일정. (COLMAP 좌표는 임의 스케일이므로 절대값 하드코딩 금지)

@@ -32,14 +32,14 @@ COLMAP으로 복원한 스파스 포인트클라우드(20,641점, 3DGS 학습 �
   <img src="assets/p1_pointcloud_eyelevel.jpg" width="49%" />
 </p>
 
-정직 노트: 20,641점은 COLMAP **스파스** 재구성 결과라 점이 성기다(dense/MVS 단계는 이 프로젝트 범위 밖) — 촘촘한 스캔처럼 보이지 않는 건 정상이다.
+20,641점은 COLMAP **스파스** 재구성 결과라 점이 성기다(dense/MVS 단계는 이 프로젝트 범위 밖) — 촘촘한 스캔처럼 보이지 않는 건 정상이다.
 
 좌: 원본 프레임(GT) / 우: 3DGS 렌더(학습에 쓰지 않은 held-out 뷰).
 
 ![근경 비교](assets/p1_compare_00005.jpg)
 ![통로 비교](assets/p1_compare_00020.jpg)
 
-정직 노트: 근·중경은 원본과 거의 구별되지 않으나, 관측이 적은 **통로 안쪽 원거리는 흐릿하게** 재현된다(아래 P3에서 검출 손실로 정량화). 재현 절차·파라미터는 [references/p1_result.md](references/p1_result.md) 참조.
+근·중경은 원본과 거의 구별되지 않으나, 관측이 적은 **통로 안쪽 원거리는 흐릿하게** 재현된다(아래 P3에서 검출 손실로 정량화). 재현 절차·파라미터는 [references/p1_result.md](references/p1_result.md) 참조.
 
 ## P2 — 합성 데이터 생성 (완료)
 
