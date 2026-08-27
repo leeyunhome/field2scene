@@ -21,12 +21,18 @@
 | 3DGS | 1.33M splat, 30k iter, RTX 4060 Laptop 8GB |
 | **held-out(test) PSNR** | **30.73 dB** (train 31.08 — 과적합 아님) |
 
-COLMAP으로 복원한 스파스 포인트클라우드(3DGS 학습 전 단계의 중간 산출물) — 좌: 온실 골조·통로 전체 윤곽, 우: 위에서 내려다본 클로즈업(통로 양옆 작물 열과 그 사이를 지나가는 카메라 궤적, 190장 dolly 경로, 파란색).
+COLMAP으로 복원한 스파스 포인트클라우드(20,641점, 3DGS 학습 전 단계의 중간 산출물) — 여러 각도로 본 모습. 좌상: 온실 골조·통로 전체 윤곽 / 우상: COLMAP GUI 원본 화면(빨간 카메라 프러스텀 190장) / 좌하: 위에서 내려다본 클로즈업(작물 열 + 카메라 궤적) / 우하: 눈높이 시점.
 
 <p float="left">
   <img src="assets/p1_pointcloud_wide.jpg" width="49%" />
-  <img src="assets/p1_pointcloud.jpg" width="49%" />
+  <img src="assets/p1_pointcloud_colmap.jpg" width="49%" />
 </p>
+<p float="left">
+  <img src="assets/p1_pointcloud.jpg" width="49%" />
+  <img src="assets/p1_pointcloud_eyelevel.jpg" width="49%" />
+</p>
+
+정직 노트: 20,641점은 COLMAP **스파스** 재구성 결과라 점이 성기다(dense/MVS 단계는 이 프로젝트 범위 밖) — 촘촘한 스캔처럼 보이지 않는 건 정상이다.
 
 좌: 원본 프레임(GT) / 우: 3DGS 렌더(학습에 쓰지 않은 held-out 뷰).
 
