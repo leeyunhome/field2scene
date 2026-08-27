@@ -21,7 +21,7 @@
 | 3DGS | 1.33M splat, 30k iter, RTX 4060 Laptop 8GB |
 | **held-out(test) PSNR** | **30.73 dB** (train 31.08 — 과적합 아님) |
 
-COLMAP으로 복원한 스파스 포인트클라우드(온실 통로 작물 열)와 카메라 궤적(190장 dolly 경로, 파란색) — 3DGS 학습 전 단계의 중간 산출물.
+COLMAP으로 복원한 스파스 포인트클라우드를 위에서 내려다본 뷰 — 통로 양옆 작물 열(빨강)과 그 사이를 지나가는 카메라 궤적(190장 dolly 경로, 파란색). 3DGS 학습 전 단계의 중간 산출물.
 
 ![COLMAP 스파스 포인트클라우드 + 카메라 궤적](assets/p1_pointcloud.jpg)
 
